@@ -1,0 +1,48 @@
+Konduru Yaswanth  
+ya s wa nt hkon dur u5 9@ g ma il. c o m| 9491152005| https://www. linkedin. com/in/kondur u -yaswa nth -
+424886311 / 
+Education 
+NBKR Institute of Science and Technology, Vidyanagar 
+Bachelor of Engineering in Computer science Engineering 
+ CGPA-8.4 
+Skills 
+ Languages : Python, Java 
+ Web Technologies : HTML, CSS, JAVASCRIPT 
+ Database Management : MYSQL 
+ Developer Tools : VS Code, Antigravity 
+Projects 
+ Plant disease detection using TensorFlow 
+Jul 2023 – May 2027 
+                   AP, India 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Built a plant disease detection system using TensorFlow and CNN to classify leaf images and identify diseases 
+accurately. 
+Technologies Used: 
+ TensorFlow  
+ Python  
+ CNN (Deep Learning)  
+ Image Processing  
+GitHub: 
+https://github.com/yaswanthkonduru59-sys/plant-disease-detection 
+ FaceMask detector using TensorFlow 
+Built a real-time face mask detection system using TensorFlow and CNN to classify masked and unmasked faces 
+Technologies Used: 
+ TensorFlow  
+ Python 
+ CNN (Deep Learning)  
+ OpenCV (for real-time detection) 
+Courses 
+NPTEL COURSE 
+ Privacy and Security in Online Social Media 
+Declaration 
+I hereby declare that the information provided above is true to the best of my knowledge and belief. 
+ 
+ 
+Konduru Yaswanth 
+Gudur 

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional Portfolio of Konduru Yaswanth">
+    <title>Konduru Yaswanth - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-title">Online Portfolio</span>
+            <span class="logo-subtitle">just another My Blog site</span>
+        </div>
+        <nav>
+            <a href="#home">HOME</a>
+            <a href="#about">ABOUT ME</a>
+            <a href="#skills">SKILLS</a>
+            <a href="#works">WORKS</a>
+            <a href="#contact">CONTACT US</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>KONDURU YASWANTH</h1>
+            <p>
+                Hi, I am a Professional Developer. I have experience in the IT Sector as a Web Developer, I'd like to
+                build modern and responsive websites. Passionate about clean design and user-friendly experiences.
+            </p>
+            <a href="#contact" class="btn btn-primary">Hire Me</a>
+        </div>
+        <div class="hero-image-container">
+            <img src="myphoto.jpeg" alt="Konduru Yaswanth">
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="myphoto.jpeg" alt="About Konduru">
+            </div>
+            <div class="about-text">
+                <h2>ABOUT ME</h2>
+                <div class="divider"></div>
+                <p>
+                    I am a passionate web developer blending expertise with industry know-how to guide your next
+                    development project. I enjoy building modern and responsive websites.
+                </p>
+                <p>
+                    Software Developers use software development languages and tools to write, edit, maintain, and test
+                    computer software. Software Developers follow the software development lifecycle to plan, design,
+                    build, test, and deploy applications.
+                </p>
+                <a href="myresume.pdf" download class="btn btn-secondary">DOWNLOAD RESUME</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="section-header">
+            <h2>MY SKILLS</h2>
+            <div class="divider-center"></div>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Languages</h3>
+                <p>Python, Java</p>
+            </div>
+            <div class="skill-card">
+                <h3>Web Technologies</h3>
+                <p>HTML, CSS, JavaScript</p>
+            </div>
+            <div class="skill-card">
+                <h3>Database Management</h3>
+                <p>MySQL</p>
+            </div>
+            <div class="skill-card">
+                <h3>Developer Tools</h3>
+                <p>VS Code, Antigravity</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Works / Projects Section -->
+    <section id="works" class="works">
+        <div class="section-header">
+            <h2>LATEST WORKS</h2>
+            <div class="divider-center"></div>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card" onclick="openPlantModal()" style="cursor: pointer;" title="Click to view project images">
+                <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                    alt="Plant Disease Detection">
+                <div class="project-info">
+                    <h3>Plant Disease Detection</h3>
+                    <p>Built a plant disease detection system using TensorFlow and CNN to classify leaf images and identify diseases accurately.</p>
+                </div>
+            </div>
+            <div class="project-card" onclick="openMaskModal()" style="cursor: pointer;" title="Click to view project images">
+                <img src="https://images.unsplash.com/photo-1584483766114-2cea6facdf57?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                    alt="FaceMask Detector">
+                <div class="project-info">
+                    <h3>FaceMask Detector</h3>
+                    <p>Built a real-time face mask detection system using TensorFlow, CNN, and OpenCV to classify masked and unmasked faces.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="section-header">
+            <h2>CONTACT ME</h2>
+            <div class="divider-center"></div>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Get In Touch</h3>
+                <p>Feel free to reach out for collaborations or just a friendly chat.</p>
+                <ul>
+                    <li>✉️ yaswanthkonduru59@gmail.com</li>
+                    <li>📞 9491152005</li>
+                    <li>📍 Gudur, AP, India</li>
+                </ul>
+            </div>
+            <form id="contactForm" class="contact-form">
+                <input type="text" id="senderName" placeholder="Your Name" required>
+                <input type="email" id="senderEmail" placeholder="Your Email" required>
+                <textarea id="senderMessage" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Konduru Yaswanth. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/konduru-yaswanth-424886311/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/yaswanthkonduru59-sys" target="_blank">GitHub</a>
+        </div>
+    </footer>
+
+    <!-- Plant Project Modal -->
+    <div id="plantModal" class="modal">
+        <span class="close" onclick="closePlantModal()">&times;</span>
+        <div class="modal-content">
+            <h2>Plant Disease Detection Images</h2>
+            <div class="modal-gallery">
+                <!-- Replace src with your actual image file names if they differ -->
+                <img src="plant1.jpg" alt="Plant Image 1" onerror="this.src='https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'">
+                <img src="plant2.jpg" alt="Plant Image 2" onerror="this.src='https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'">
+                <img src="plant3.jpg" alt="Plant Image 3" onerror="this.src='https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'">
+            </div>
+        </div>
+    </div>
+
+    <!-- Mask Project Modal -->
+    <div id="maskModal" class="modal">
+        <span class="close" onclick="closeMaskModal()">&times;</span>
+        <div class="modal-content">
+            <h2>FaceMask Detector Images</h2>
+            <div class="modal-gallery">
+                <img src="mask1.jpg" alt="Mask Image 1" onerror="this.src='https://images.unsplash.com/photo-1584483766114-2cea6facdf57?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'">
+                <img src="mask2.jpeg" alt="Mask Image 2" onerror="this.src='https://images.unsplash.com/photo-1584483766114-2cea6facdf57?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'">
+                <img src="mask3.jpg" alt="Mask Image 3" onerror="this.src='https://images.unsplash.com/photo-1584483766114-2cea6facdf57?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'">
+                <img src="mask4.jpg" alt="Mask Image 4" onerror="this.src='https://images.unsplash.com/photo-1584483766114-2cea6facdf57?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal scripts
+        const plantModal = document.getElementById("plantModal");
+        const maskModal = document.getElementById("maskModal");
+
+        function openPlantModal() {
+            plantModal.style.display = "flex";
+        }
+
+        function closePlantModal() {
+            plantModal.style.display = "none";
+        }
+
+        function openMaskModal() {
+            maskModal.style.display = "flex";
+        }
+
+        function closeMaskModal() {
+            maskModal.style.display = "none";
+        }
+
+        // Close when clicking outside of the modal content
+        window.onclick = function(event) {
+            if (event.target == plantModal) {
+                closePlantModal();
+            }
+            if (event.target == maskModal) {
+                closeMaskModal();
+            }
+        }
+
+        // Contact Form Handling
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent page reload
+            const name = document.getElementById("senderName").value;
+            const email = document.getElementById("senderEmail").value;
+            const message = document.getElementById("senderMessage").value;
+            
+            const subject = encodeURIComponent("Portfolio Contact: " + name);
+            const body = encodeURIComponent("Name: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message);
+            
+            // Explicitly open Gmail in a new tab instead of relying on local mail apps
+            const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=yaswanthkonduru59@gmail.com&su=${subject}&body=${body}`;
+            window.open(gmailLink, '_blank');
+            
+            // Clear the form fields after sending
+            this.reset();
+        });
+    </script>
+</body>
+
+</html>
