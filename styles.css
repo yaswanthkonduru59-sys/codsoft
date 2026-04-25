@@ -149,7 +149,7 @@ nav a:hover {
 
 /* Hero Section */
 .hero {
-    background: url('bg.jpg') no-repeat center center/cover;
+    background: url('bg.jpeg') no-repeat center center/cover;
     background-color: #454545;
     color: #fff;
     display: flex;
@@ -217,29 +217,21 @@ nav a:hover {
 }
 
 .about-container {
-    display: flex;
-    align-items: flex-start;
-    gap: 60px;
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
-}
-
-.about-image {
-    flex: 1;
-}
-
-.about-image img {
-    width: 100%;
-    max-height: 450px;
-    object-fit: cover;
-    object-position: top;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 0 20px;
 }
 
 .about-text {
-    flex: 1.2;
+    max-width: 760px;
+    margin: 0 auto;
 }
+
+.about-text p {
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
 
 /* Skills Section */
 .skills {
