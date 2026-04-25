@@ -60,7 +60,7 @@
                     computer software. Software Developers follow the software development lifecycle to plan, design,
                     build, test, and deploy applications.
                 </p>
-                <a href="myresume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">DOWNLOAD RESUME</a>
+                <a href="myresume.pdf" id="downloadResume" class="btn btn-secondary">DOWNLOAD RESUME</a>
             </div>
         </div>
     </section>
@@ -226,6 +226,20 @@
             
             // Clear the form fields after sending
             this.reset();
+        });
+
+        // Download Resume Handling
+        document.getElementById("downloadResume").addEventListener("click", function(event) {
+            event.preventDefault();
+            // Create a link to download
+            const link = document.createElement('a');
+            link.href = 'myresume.pdf';
+            link.download = 'Konduru_Yaswanth_Resume.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            // Then open in new tab
+            window.open('myresume.pdf', '_blank');
         });
     </script>
 </body>
