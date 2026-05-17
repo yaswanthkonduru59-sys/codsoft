@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NovaCraft — Build the Future</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+        rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --ink: #0d0d0d;
+            --paper: #f5f2eb;
+            --paper2: #edeae0;
+            --accent: #1a3fff;
+            --accent-dark: #0e28cc;
+            --accent-muted: #d0d9ff;
+            --gold: #e6a817;
+            --text-muted: #5c5a52;
+            --border: rgba(13, 13, 13, 0.12);
+            --radius: 3px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--paper);
+            color: var(--ink);
+            overflow-x: hidden;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.2rem 4rem;
+            background: var(--paper);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(8px);
+        }
+
+        .logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.35rem;
+            letter-spacing: -0.03em;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--ink);
+        }
+
+        .nav-cta {
+            background: var(--ink);
+            color: var(--paper);
+            border: none;
+            padding: 0.6rem 1.4rem;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 500;
+            font-size: 0.88rem;
+            cursor: pointer;
+            border-radius: var(--radius);
+            letter-spacing: 0.02em;
+            transition: background 0.2s;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent);
+        }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 100vh;
+            padding: 8rem 4rem 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -200px;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, var(--accent-muted) 0%, transparent 65%);
+            opacity: 0.5;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: var(--accent-muted);
+            padding: 0.35rem 0.9rem;
+            border-radius: 100px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2.8rem, 5vw, 4.2rem);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 em {
+            font-style: normal;
+            color: var(--accent);
+            position: relative;
+        }
+
+        h1 em::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 2px;
+            right: 0;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        .hero-desc {
+            font-size: 1.08rem;
+            line-height: 1.75;
+            color: var(--text-muted);
+            max-width: 480px;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--ink);
+            color: var(--paper);
+            padding: 0.85rem 2rem;
+            border: none;
+            border-radius: var(--radius);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 500;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            color: var(--ink);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            border-bottom: 1.5px solid var(--ink);
+            padding-bottom: 1px;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .btn-secondary:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2.5rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .stat-num {
+            font-family: 'Syne', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            color: var(--ink);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.2rem;
+        }
+
+        /* ── HERO RIGHT (visual) ── */
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-stack {
+            width: 100%;
+            max-width: 440px;
+            position: relative;
+            height: 480px;
+        }
+
+        .vis-card {
+            position: absolute;
+            background: var(--paper2);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 24px rgba(0, 0, 0, 0.07);
+        }
+
+        .vis-card.main {
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+        }
+
+        .vis-card.floating {
+            width: 220px;
+            top: 20px;
+            right: -20px;
+            background: var(--ink);
+            color: var(--paper);
+            border-color: transparent;
+        }
+
+        .vis-card.floating2 {
+            width: 180px;
+            top: 130px;
+            left: -20px;
+            background: var(--accent);
+            color: white;
+            border-color: transparent;
+        }
+
+        .card-label {
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            opacity: 0.6;
+            margin-bottom: 0.7rem;
+        }
+
+        .card-big-num {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .card-sub {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: 0.4rem;
+        }
+
+        .mini-bars {
+            display: flex;
+            gap: 4px;
+            align-items: flex-end;
+            height: 40px;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .mini-bar {
+            flex: 1;
+            border-radius: 3px;
+            background: var(--accent-muted);
+        }
+
+        .mini-bar.active {
+            background: var(--accent);
+        }
+
+        .feature-rows {
+            margin-top: 0.8rem;
+        }
+
+        .feature-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.55rem 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.82rem;
+        }
+
+        .feature-row:last-child {
+            border-bottom: none;
+        }
+
+        .badge {
+            font-size: 0.7rem;
+            padding: 0.2rem 0.55rem;
+            border-radius: 100px;
+            font-weight: 500;
+        }
+
+        .badge.green {
+            background: #d4f5d4;
+            color: #1a7a1a;
+        }
+
+        .badge.blue {
+            background: var(--accent-muted);
+            color: var(--accent-dark);
+        }
+
+        /* ── SECTION SHARED ── */
+        section {
+            padding: 6rem 4rem;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+            max-width: 600px;
+        }
+
+        /* ── FEATURES ── */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            margin-top: 4rem;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .feature-cell {
+            background: var(--paper);
+            padding: 2.5rem 2rem;
+            transition: background 0.25s;
+            position: relative;
+        }
+
+        .feature-cell:hover {
+            background: white;
+        }
+
+        .feature-cell+.feature-cell {
+            border-left: 1px solid var(--border);
+        }
+
+        .feature-cell:nth-child(n+4) {
+            border-top: 1px solid var(--border);
+        }
+
+        .feature-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: var(--ink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.4rem;
+            font-size: 1.3rem;
+        }
+
+        .feature-cell h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+            letter-spacing: -0.02em;
+        }
+
+        .feature-cell p {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* ── HOW IT WORKS ── */
+        .how-section {
+            background: var(--ink);
+            color: var(--paper);
+        }
+
+        .how-section .section-label {
+            color: var(--gold);
+        }
+
+        .how-section h2 {
+            color: var(--paper);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+            position: relative;
+        }
+
+        .steps::before {
+            content: '';
+            position: absolute;
+            top: 28px;
+            left: 8%;
+            right: 8%;
+            height: 1px;
+            background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0, rgba(255, 255, 255, 0.2) 8px, transparent 8px, transparent 16px);
+        }
+
+        .step {
+            position: relative;
+        }
+
+        .step-num {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Syne', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            border: 3px solid var(--ink);
+            position: relative;
+            z-index: 1;
+        }
+
+        .step h4 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            letter-spacing: -0.02em;
+        }
+
+        .step p {
+            font-size: 0.85rem;
+            color: rgba(245, 242, 235, 0.55);
+            line-height: 1.7;
+        }
+
+        /* ── TESTIMONIALS ── */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '\201C';
+            position: absolute;
+            top: 1.2rem;
+            right: 1.5rem;
+            font-size: 4rem;
+            line-height: 1;
+            color: var(--accent-muted);
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-text {
+            font-size: 0.95rem;
+            line-height: 1.75;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--ink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--paper);
+            font-family: 'Syne', sans-serif;
+            flex-shrink: 0;
+        }
+
+        .author-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .author-role {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .stars {
+            color: var(--gold);
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        /* ── PRICING ── */
+        .pricing-section {
+            background: var(--paper2);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 4rem;
+            align-items: start;
+        }
+
+        .pricing-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: transform 0.2s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .pricing-card.featured {
+            background: var(--ink);
+            color: var(--paper);
+            border-color: transparent;
+            transform: scale(1.03);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.03) translateY(-4px);
+        }
+
+        .plan-name {
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .pricing-card.featured .plan-name {
+            color: rgba(245, 242, 235, 0.5);
+        }
+
+        .price {
+            font-family: 'Syne', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -0.06em;
+            display: flex;
+            align-items: baseline;
+            gap: 0.15rem;
+        }
+
+        .price-dollar {
+            font-size: 1.4rem;
+            margin-top: 0.5rem;
+        }
+
+        .price-period {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        .pricing-card.featured .price-period {
+            color: rgba(245, 242, 235, 0.5);
+        }
+
+        .pricing-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 1rem 0 1.5rem;
+            line-height: 1.6;
+        }
+
+        .pricing-card.featured .pricing-desc {
+            color: rgba(245, 242, 235, 0.6);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            font-size: 0.85rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pricing-card.featured .pricing-features li {
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .pricing-card.featured .pricing-features li::before {
+            color: var(--gold);
+        }
+
+        .btn-plan {
+            width: 100%;
+            padding: 0.85rem;
+            border-radius: var(--radius);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 500;
+            font-size: 0.92rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1.5px solid var(--ink);
+            background: transparent;
+            color: var(--ink);
+        }
+
+        .btn-plan:hover {
+            background: var(--ink);
+            color: var(--paper);
+        }
+
+        .pricing-card.featured .btn-plan {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .pricing-card.featured .btn-plan:hover {
+            background: var(--accent-dark);
+        }
+
+        /* ── CTA ── */
+        .cta-section {
+            text-align: center;
+            padding: 8rem 4rem;
+            background: linear-gradient(145deg, var(--ink) 0%, #1a0a3f 100%);
+            color: var(--paper);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(26, 63, 255, 0.25), transparent 65%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+            color: var(--paper);
+        }
+
+        .cta-section p {
+            color: rgba(245, 242, 235, 0.55);
+            margin-bottom: 2.5rem;
+            font-size: 1.05rem;
+        }
+
+        .cta-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-cta-primary {
+            background: var(--accent);
+            color: white;
+            padding: 0.95rem 2.2rem;
+            border: none;
+            border-radius: var(--radius);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-cta-primary:hover {
+            background: var(--accent-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-cta-ghost {
+            color: rgba(245, 242, 235, 0.7);
+            padding: 0.95rem 2rem;
+            border: 1px solid rgba(245, 242, 235, 0.2);
+            border-radius: var(--radius);
+            background: transparent;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .btn-cta-ghost:hover {
+            border-color: rgba(245, 242, 235, 0.6);
+            color: var(--paper);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--paper2);
+            padding: 3rem 4rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+
+        .footer-logo span {
+            color: var(--accent);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--ink);
+        }
+
+        .footer-copy {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* ── ANIMATIONS ── */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content>* {
+            animation: fadeUp 0.6s ease both;
+        }
+
+        .hero-content>*:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .hero-content>*:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .hero-content>*:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .hero-content>*:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .hero-content>*:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .hero-visual {
+            animation: fadeUp 0.7s 0.35s ease both;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 6rem 1.5rem 3rem;
+                gap: 3rem;
+            }
+
+            .hero-visual {
+                display: none;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-cell+.feature-cell {
+                border-left: none;
+                border-top: 1px solid var(--border);
+            }
+
+            .feature-cell:nth-child(n+4) {
+                border-top: 1px solid var(--border);
+            }
+
+            .steps {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .steps::before {
+                display: none;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+
+            footer {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="logo">Nova<span>Craft</span></div>
+        <ul class="nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how">How it works</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+        </ul>
+        <button class="nav-cta">Get started free</button>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-eyebrow">New: AI-powered workflows are here</div>
+            <h1>Build your next<br><em>big idea</em><br>faster than ever</h1>
+            <p class="hero-desc">NovaCraft is the all-in-one platform for modern teams — beautifully designed tools for
+                shipping products people love.</p>
+            <div class="hero-actions">
+                <a href="#" class="btn-primary">Start for free →</a>
+                <a href="#how" class="btn-secondary">See how it works ↓</a>
+            </div>
+            <div class="hero-stats">
+                <div>
+                    <div class="stat-num">40k+</div>
+                    <div class="stat-label">Teams onboard</div>
+                </div>
+                <div>
+                    <div class="stat-num">99.9%</div>
+                    <div class="stat-label">Uptime SLA</div>
+                </div>
+                <div>
+                    <div class="stat-num">4.9★</div>
+                    <div class="stat-label">Avg. rating</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="card-stack">
+                <!-- Floating card 1 -->
+                <div class="vis-card floating">
+                    <div class="card-label">Monthly revenue</div>
+                    <div class="card-big-num">$84.2k</div>
+                    <div class="card-sub">↑ 23% from last month</div>
+                    <div class="mini-bars">
+                        <div class="mini-bar" style="height:45%"></div>
+                        <div class="mini-bar" style="height:60%"></div>
+                        <div class="mini-bar" style="height:40%"></div>
+                        <div class="mini-bar active" style="height:80%"></div>
+                        <div class="mini-bar active" style="height:65%"></div>
+                        <div class="mini-bar active" style="height:90%"></div>
+                        <div class="mini-bar active" style="height:100%"></div>
+                    </div>
+                </div>
+
+                <!-- Floating card 2 -->
+                <div class="vis-card floating2">
+                    <div class="card-label" style="color:rgba(255,255,255,0.6)">AI tasks</div>
+                    <div class="card-big-num" style="font-size:1.6rem">1,249 saved</div>
+                    <div class="card-sub" style="color:rgba(255,255,255,0.6)">This week</div>
+                </div>
+
+                <!-- Main card -->
+                <div class="vis-card main" style="height: 290px;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.2rem;">
+                        <span style="font-family:'Syne',sans-serif; font-weight:700; font-size:0.9rem;">Active
+                            Projects</span>
+                        <span style="font-size:0.75rem; color:var(--text-muted);">May 2025</span>
+                    </div>
+                    <div class="feature-rows">
+                        <div class="feature-row">
+                            <span>Redesign Sprint</span>
+                            <span class="badge green">On track</span>
+                        </div>
+                        <div class="feature-row">
+                            <span>API v3 Launch</span>
+                            <span class="badge blue">In review</span>
+                        </div>
+                        <div class="feature-row">
+                            <span>Mobile App Beta</span>
+                            <span class="badge green">Shipped ✓</span>
+                        </div>
+                        <div class="feature-row">
+                            <span>Analytics Dashboard</span>
+                            <span class="badge blue">85% done</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features">
+        <div class="section-label">Features</div>
+        <h2>Everything your team needs to move fast</h2>
+        <div class="features-grid">
+            <div class="feature-cell">
+                <div class="feature-icon">⚡</div>
+                <h3>Lightning-fast editor</h3>
+                <p>A real-time collaborative workspace built for speed. Type, design, and ship — without the friction.
+                </p>
+            </div>
+            <div class="feature-cell">
+                <div class="feature-icon">🤖</div>
+                <h3>AI copilot built in</h3>
+                <p>Let AI handle the repetitive stuff — auto-fill, suggestions, and smart automation baked right into
+                    your workflow.</p>
+            </div>
+            <div class="feature-cell">
+                <div class="feature-icon">🔗</div>
+                <h3>200+ integrations</h3>
+                <p>Connect your existing stack in minutes. Slack, Notion, Jira, GitHub — everything talks to everything.
+                </p>
+            </div>
+            <div class="feature-cell">
+                <div class="feature-icon">📊</div>
+                <h3>Live analytics</h3>
+                <p>Track what matters with dashboards that update in real time. No more waiting for weekly reports.</p>
+            </div>
+            <div class="feature-cell">
+                <div class="feature-icon">🔒</div>
+                <h3>Enterprise-grade security</h3>
+                <p>SOC 2 Type II, GDPR compliant, end-to-end encryption. Your data stays yours — always.</p>
+            </div>
+            <div class="feature-cell">
+                <div class="feature-icon">🌍</div>
+                <h3>Global CDN</h3>
+                <p>Serve your users from 40+ edge locations worldwide. Sub-100ms load times, guaranteed.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-section" id="how">
+        <div class="section-label">How it works</div>
+        <h2>From zero to shipped in four steps</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <h4>Create your workspace</h4>
+                <p>Sign up and set up your team space in under two minutes. No credit card needed to start.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <h4>Invite your team</h4>
+                <p>Add collaborators and assign roles. Everyone gets their own personalized view.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <h4>Build & automate</h4>
+                <p>Use our editor and AI tools to build workflows, pages, and products at record speed.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">4</div>
+                <h4>Launch with confidence</h4>
+                <p>One-click deploys, staging environments, and rollbacks. Ship without fear.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials">
+        <div class="section-label">Reviews</div>
+        <h2>Teams who made the switch love it</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">NovaCraft cut our release cycle from two weeks to three days. The AI tools
+                    alone are worth the subscription — we've saved hundreds of hours on manual work.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">AL</div>
+                    <div>
+                        <div class="author-name">Arjun Lakhani</div>
+                        <div class="author-role">CTO, Fintrac Solutions</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">We evaluated six platforms before choosing NovaCraft. The UX is unmatched —
+                    our designers and devs finally work in the same tool without fighting over it.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">SN</div>
+                    <div>
+                        <div class="author-name">Sofia Nkrumah</div>
+                        <div class="author-role">Head of Product, Luminary</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">Support is phenomenal and the roadmap is constantly evolving. It genuinely
+                    feels like they listen to feature requests. Couldn't imagine going back.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">MR</div>
+                    <div>
+                        <div class="author-name">Marcus Reyes</div>
+                        <div class="author-role">Founder, BuildFlow</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">Our onboarding time dropped 60% after switching. The integrations work
+                    flawlessly and the analytics give us insights we never had before.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">PK</div>
+                    <div>
+                        <div class="author-name">Priya Kapoor</div>
+                        <div class="author-role">VP Engineering, Scalr</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing-section" id="pricing">
+        <div class="section-label">Pricing</div>
+        <h2>Simple, transparent pricing</h2>
+        <div class="pricing-grid">
+            <!-- Starter -->
+            <div class="pricing-card">
+                <div class="plan-name">Starter</div>
+                <div class="price"><span class="price-dollar">$</span>0<span class="price-period">/mo</span></div>
+                <p class="pricing-desc">Perfect for solo builders and side projects. No credit card required.</p>
+                <ul class="pricing-features">
+                    <li>Up to 3 projects</li>
+                    <li>5 GB storage</li>
+                    <li>Community support</li>
+                    <li>Basic analytics</li>
+                    <li>Core integrations (20+)</li>
+                </ul>
+                <button class="btn-plan">Get started free</button>
+            </div>
+
+            <!-- Pro (featured) -->
+            <div class="pricing-card featured">
+                <div class="plan-name">Pro</div>
+                <div class="price"><span class="price-dollar">$</span>49<span class="price-period">/mo per seat</span>
+                </div>
+                <p class="pricing-desc">For growing teams that need speed, collaboration, and AI tools.</p>
+                <ul class="pricing-features">
+                    <li>Unlimited projects</li>
+                    <li>100 GB storage</li>
+                    <li>Priority support (24 hr)</li>
+                    <li>Advanced analytics + reports</li>
+                    <li>200+ integrations</li>
+                    <li>AI copilot (100k tokens/mo)</li>
+                </ul>
+                <button class="btn-plan">Start free 14-day trial</button>
+            </div>
+
+            <!-- Enterprise -->
+            <div class="pricing-card">
+                <div class="plan-name">Enterprise</div>
+                <div class="price" style="font-size:2rem">Custom</div>
+                <p class="pricing-desc">Tailored for large organizations with security, compliance & scale needs.</p>
+                <ul class="pricing-features">
+                    <li>Unlimited everything</li>
+                    <li>Custom SLA & uptime</li>
+                    <li>Dedicated account manager</li>
+                    <li>SSO / SAML / SCIM</li>
+                    <li>On-premise deployment</li>
+                    <li>Unlimited AI usage</li>
+                </ul>
+                <button class="btn-plan">Contact sales</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="section-label" style="color:var(--gold); margin-bottom:1.5rem;">Start today</div>
+        <h2>Your best work starts here. Ready?</h2>
+        <p>Join 40,000+ teams who ship faster with NovaCraft. Free forever on Starter.</p>
+        <div class="cta-actions">
+            <a href="#" class="btn-cta-primary">Create free account →</a>
+            <a href="#" class="btn-cta-ghost">Book a demo</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo">Nova<span>Craft</span></div>
+        <div class="footer-links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Docs</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="footer-copy">© 2025 NovaCraft, Inc. All rights reserved.</div>
+    </footer>
+
+</body>
+
+</html>
